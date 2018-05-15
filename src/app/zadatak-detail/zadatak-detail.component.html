@@ -1,0 +1,15 @@
+<div *ngIf="zadatak" class="form-group">
+  <div>
+    <p>Ime: {{ zadatak.ime }}</p>
+  </div>
+  <div>
+    <p>Opit: {{ zadatak.opis }}</p>
+  </div>
+  <div>
+    <p>Kreiran: {{ zadatak.kreiran | date: 'fullDate' }}</p>
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="editZadatak(zadatak)">Edit</button>
+  <button type="button" class="btn btn-danger" (click)="deleteZadatak(zadatak)">Delete</button>
+  <button type="button" class="btn btn-primary" (click)="goBack()">Back</button>
+</div>

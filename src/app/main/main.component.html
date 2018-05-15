@@ -1,0 +1,29 @@
+<button class="btn btn-lg btn-outline-primary" (click)="createZadatak(content)">Kreiraj novi zadatak</button>
+
+<table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+  <thead>
+  <tr>
+    <th></th>
+    <th>ID</th>
+    <th>Ime</th>
+    <th>Opis</th>
+    <th>Kreiran</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of zadaci">
+    <td><input type="checkbox" name="{{item._id}}" [(ngModel)]="elements[item._id]"></td>
+    <td><a [routerLink]="['/zadatak-details', item._id]">{{ item._id }}</a></td>
+    <td>{{ item.ime }}</td>
+    <td>{{ item.opis }}</td>
+    <td>{{ item.kreiran | date: 'fullDate' }}</td>
+    <td><button type="button" (click)="editZadatak(item)">Edit</button></td>
+  </tr>
+  </tbody>
+</table>
+
+<button type="button" class="btn waves-effect waves-light blue" (click)="deleteZadatak()">
+  Delete
+</button>
+
